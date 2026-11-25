@@ -5,81 +5,170 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ZANN ELIMINASI VIP</title>
-
 <style>
-*{box-sizing:border-box}
-body{
- margin:0;
- background:#080711;
- color:white;
- font-family:Arial,sans-serif;
+:root {
+  --bg:#080811;
+  --panel:#141426;
+  --purple:#9b5cff;
+  --blue:#258cff;
+  --gold:#ffcc55;
+  --text:#f7f5ff;
+  --muted:#aaa7bd;
 }
-header{
- padding:20px;
- background:#110d20;
- border-bottom:1px solid #792bff;
- display:flex;
- justify-content:space-between;
- align-items:center;
- flex-wrap:wrap;
+* {box-sizing:border-box}
+body {
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
-.logo{
- color:#bd80ff;
- font-size:22px;
- font-weight:bold;
+header {
+  padding:20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #28243e;
+  background:#0c0b18;
+  position:sticky;
+  top:0;
+  z-index:5;
 }
-.container{
- width:94%;
- max-width:1000px;
- margin:25px auto;
+.logo {
+  font-size:19px;
+  font-weight:900;
+  color:var(--purple);
+  letter-spacing:1px;
 }
-.card{
- background:#151122;
- border:1px solid #49306b;
- border-radius:14px;
- padding:20px;
- margin-bottom:18px;
- box-shadow:0 0 18px #5316a522;
+button {
+  border:0;
+  border-radius:10px;
+  padding:12px 17px;
+  font-weight:bold;
+  cursor:pointer;
+  color:white;
+  background:linear-gradient(110deg,var(--purple),var(--blue));
 }
-h2{color:#bd80ff}
-button{
- background:linear-gradient(90deg,#7625ed,#245dff);
- color:white;
- border:0;
- padding:12px 17px;
- border-radius:8px;
- cursor:pointer;
- font-weight:bold;
- margin:4px;
+button.secondary {
+  background:#29263c;
 }
-button.red{background:#a52a49}
-input,select{
- width:100%;
- padding:13px;
- background:#0b0913;
- color:white;
- border:1px solid #61418c;
- border-radius:8px;
- margin:8px 0 14px;
+button.danger {
+  background:#a83248;
 }
-.price{
- font-size:23px;
- color:#ffd66b;
- font-weight:bold;
+button:disabled {
+  opacity:.5;
+  cursor:not-allowed;
 }
-.small{color:#aaa;font-size:13px}
-.hidden{display:none}
-.item{
- background:#211a32;
- padding:12px;
- margin:8px 0;
- border-radius:8px;
+main {
+  max-width:1050px;
+  margin:auto;
+  padding:25px 16px;
 }
-#message{padding:10px;color:#ffd66b}
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
- gap:12px;
+.hero {
+  text-align:center;
+  padding:65px 15px;
+  background:
+    radial-gradient(ellipse at top,#38205d,transparent 65%),
+    #111020;
+  border:1px solid #30264b;
+  border-radius:22px;
+}
+.hero h1 {
+  font-size:clamp(30px,7vw,55px);
+  margin:0;
+  background:linear-gradient(90deg,#c68cff,#49a8ff,#ffcc55);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.hero p {
+  color:var(--muted);
+  line-height:1.7;
+}
+.section-title {
+  margin:35px 0 17px;
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:15px;
+}
+.card {
+  background:var(--panel);
+  border:1px solid #302a49;
+  border-radius:15px;
+  padding:20px;
+  box-shadow:0 8px 30px #0005;
+}
+.card h3 {margin-top:0}
+.price {
+  font-size:27px;
+  font-weight:900;
+  color:var(--gold);
+}
+.small {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
+input,select {
+  display:block;
+  width:100%;
+  padding:13px;
+  margin:10px 0;
+  border-radius:9px;
+  border:1px solid #393451;
+  background:#090916;
+  color:white;
+}
+label {
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+  margin-top:12px;
+}
+button.full {width:100%;margin-top:8px}
+.hidden {display:none!important}
+.notice {
+  background:#211b38;
+  padding:14px;
+  border-radius:10px;
+  margin:12px 0;
+  line-height:1.6;
+  overflow-wrap:anywhere;
+}
+.status {
+  color:#7dffbc;
+  font-weight:bold;
+}
+.list-item {
+  background:#0d0c19;
+  border:1px solid #29243d;
+  padding:13px;
+  margin:9px 0;
+  border-radius:10px;
+  overflow-wrap:anywhere;
+}
+footer {
+  text-align:center;
+  color:var(--muted);
+  padding:30px;
+}
+#message {
+  position:fixed;
+  bottom:15px;
+  left:15px;
+  right:15px;
+  z-index:10;
+  background:#242039;
+  border:1px solid var(--purple);
+  padding:14px;
+  border-radius:10px;
+  display:none;
+}
+@media(max-width:500px) {
+  header {padding:14px}
+  .logo {font-size:15px}
+  main {padding:15px 12px}
+  .hero {padding:45px 12px}
 }
 </style>
 </head>
@@ -87,501 +176,579 @@ input,select{
 <body>
 
 <header>
- <div class="logo">ZANN ELIMINASI VIP</div>
- <button onclick="show('login')">LOGIN KEY</button>
+  <div class="logo">✦ ZANN ELIMINASI VIP</div>
+  <button onclick="showSection('login')">LOGIN</button>
 </header>
 
-<div class="container">
+<main>
+
+<section id="home">
+  <div class="hero">
+    <h1>ZANN ELIMINASI VIP</h1>
+    <p>
+      Premium TikTok LIVE Gaming Platform.
+      <br>
+      ELIMINASI • MYSTERY BOX • LELANG • LEADERBOARD
+    </p>
+    <button onclick="showSection('store')">BELI KEY SEKARANG</button>
+    <button class="secondary" onclick="showSection('login')">MASUK</button>
+  </div>
+
+  <h2 class="section-title">STORE KEY VIP</h2>
+  <div class="grid" id="homePlans"></div>
+
+  <h2 class="section-title">FITUR PLATFORM</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>ELIMINASI</h3>
+      <p class="small">Peserta, kotak, ronde, timer, LOCKED dan NO LOCKED.</p>
+    </div>
+    <div class="card">
+      <h3>TIKTOK LIVE</h3>
+      <p class="small">Integrasi gift dan sistem multi-host terpisah.</p>
+    </div>
+    <div class="card">
+      <h3>MYSTERY BOX</h3>
+      <p class="small">Hadiah, pengacakan dan riwayat pembukaan.</p>
+    </div>
+    <div class="card">
+      <h3>LELANG</h3>
+      <p class="small">Pengaturan waktu dan sesi lelang.</p>
+    </div>
+  </div>
+</section>
+
+<section id="store" class="hidden">
+  <h2>STORE KEY VIP</h2>
+  <div class="card">
+    <label>Pilih paket KEY</label>
+    <select id="plan">
+      <option value="3hari">3 Hari - Rp5.000</option>
+      <option value="7hari">7 Hari - Rp10.000</option>
+      <option value="30hari">30 Hari - Rp40.000</option>
+      <option value="permanen">Permanen - Rp100.000</option>
+    </select>
+    <div class="notice">
+      Harga sesuai paket yang dipilih.
+      <br>
+      Pembayaran melalui transfer manual.
+    </div>
+    <button class="full" onclick="buyKey()">BUAT TRANSAKSI</button>
+    <div id="purchaseResult"></div>
+  </div>
+</section>
+
+<section id="login" class="hidden">
+  <h2>MASUK DENGAN KEY</h2>
+  <div class="card">
+    <label>Masukkan KEY VIP</label>
+    <input id="keyInput" placeholder="ZANN-XXXX-XXXX">
+    <button class="full" onclick="loginKey()">MASUK KE DASHBOARD</button>
+  </div>
+
+  <h2>ADMIN</h2>
+  <div class="card">
+    <label>Password admin</label>
+    <input id="adminPassword" type="password" placeholder="Password admin">
+    <button class="full" onclick="adminLogin()">MASUK ADMIN</button>
+  </div>
+</section>
+
+<section id="dashboard" class="hidden">
+  <h2>DASHBOARD VIP</h2>
+  <div class="card">
+    <p class="status">AKUN BERHASIL LOGIN</p>
+    <p id="licenseInfo" class="small"></p>
+    <button onclick="createHost()">+ TAMBAH HOST</button>
+    <button class="danger" onclick="logout()">LOGOUT</button>
+  </div>
+
+  <h2>HOST SAYA</h2>
+  <div id="hostList"></div>
+</section>
+
+<section id="admin" class="hidden">
+  <h2>ADMIN CONTROL PANEL</h2>
+
+  <div class="card">
+    <h3>BUAT KEY GRATIS</h3>
+    <label>Pilih masa aktif</label>
+    <select id="adminPlan">
+      <option value="3hari">3 Hari</option>
+      <option value="7hari">7 Hari</option>
+      <option value="30hari">30 Hari</option>
+      <option value="permanen">Permanen</option>
+    </select>
+    <button class="full" onclick="generateAdminKey()">BUAT KEY</button>
+    <div id="generatedKey"></div>
+  </div>
+
+  <div class="card">
+    <h3>TRANSAKSI PEMBELI</h3>
+    <button onclick="loadTransactions()">REFRESH TRANSAKSI</button>
+    <div id="transactions"></div>
+  </div>
+
+  <div class="card">
+    <h3>CENTRAL RELAY</h3>
+    <p id="relayStatus">Status belum diperiksa</p>
+    <button onclick="relay(true)">AKTIFKAN RELAY</button>
+    <button class="danger" onclick="relay(false)">MATIKAN RELAY</button>
+  </div>
+
+  <button class="danger" onclick="logout()">LOGOUT ADMIN</button>
+</section>
+
+<section id="host" class="hidden">
+  <button class="secondary" onclick="showSection('dashboard')">KEMBALI</button>
+  <h2 id="hostTitle">HOST</h2>
+  <div class="card">
+    <label>Username TikTok</label>
+    <input id="tiktokUsername" placeholder="@username">
+    <button onclick="connectHost()">CONNECT</button>
+    <button class="danger" onclick="disconnectHost()">DISCONNECT</button>
+    <p id="hostStatus" class="small">DISCONNECTED</p>
+  </div>
+
+  <div class="card">
+    <h3>ELIMINASI</h3>
+    <label>Nama peserta</label>
+    <input id="participantName" placeholder="Nama peserta">
+    <button onclick="addParticipant()">TAMBAH PESERTA</button>
+
+    <label>Waktu (detik)</label>
+    <input id="elimTime" type="number" value="60" min="0">
+    <select id="lockMode">
+      <option value="LOCKED">LOCKED</option>
+      <option value="NO_LOCKED">NO LOCKED</option>
+    </select>
+    <button onclick="startElimTimer()">MULAI TIMER</button>
+    <button class="danger" onclick="resetParticipants()">RESET PESERTA</button>
+    <div id="participants"></div>
+  </div>
+
+  <div class="card">
+    <h3>LELANG</h3>
+    <label>Durasi lelang (detik)</label>
+    <input id="auctionTime" type="number" value="60" min="1">
+    <button onclick="startAuction()">MULAI LELANG</button>
+    <button class="danger" onclick="resetAuction()">RESET LELANG</button>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  ZANN ELIMINASI VIP © 2026
+</footer>
 
 <div id="message"></div>
 
-<!-- LANDING -->
-
-<section id="home">
-
- <div class="card">
-  <h1>ZANN ELIMINASI VIP</h1>
-  <p>Premium TikTok LIVE Gaming Platform.</p>
-  <p>ELIMINASI • MYSTERY BOX • LELANG • LEADERBOARD</p>
-  <button onclick="show('store')">BELI KEY</button>
-  <button onclick="show('login')">LOGIN</button>
- </div>
-
- <div class="card">
-  <h2>STORE KEY</h2>
-  <div class="grid">
-
-   <div class="item">
-    <h3>KEY 3 HARI</h3>
-    <div class="price">Rp5.000</div>
-   </div>
-
-   <div class="item">
-    <h3>KEY 7 HARI</h3>
-    <div class="price">Rp10.000</div>
-   </div>
-
-   <div class="item">
-    <h3>KEY 30 HARI</h3>
-    <div class="price">Rp40.000</div>
-   </div>
-
-   <div class="item">
-    <h3>PERMANEN</h3>
-    <div class="price">Rp100.000</div>
-   </div>
-
-  </div>
-  <button onclick="show('store')">BUKA STORE</button>
- </div>
-
- <div class="card">
-  <h2>ADMIN</h2>
-  <button onclick="show('adminLogin')">LOGIN ADMIN</button>
- </div>
-
-</section>
-
-<!-- STORE -->
-
-<section id="store" class="hidden">
- <div class="card">
-  <h2>STORE KEY VIP</h2>
-
-  <label>Pilih paket</label>
-  <select id="plan" onchange="calculate()">
-   <option value="3">3 Hari - Rp5.000</option>
-   <option value="7">7 Hari - Rp10.000</option>
-   <option value="30">30 Hari - Rp40.000</option>
-   <option value="permanent">Permanen - Rp100.000</option>
-  </select>
-
-  <label>Jumlah KEY</label>
-  <input id="quantity" type="number" value="1" min="1" max="100"
-  oninput="calculate()">
-
-  <h3>Total:</h3>
-  <div class="price" id="total">Rp5.000</div>
-
-  <button onclick="checkout()">BELI SEKARANG</button>
-  <button onclick="show('home')">KEMBALI</button>
- </div>
-</section>
-
-<!-- PAYMENT -->
-
-<section id="payment" class="hidden">
- <div class="card">
-  <h2>PEMBAYARAN</h2>
-  <div id="paymentInfo"></div>
-  <p>Transfer manual ke:</p>
-  <h2>089671458080</h2>
-  <p class="small">
-   Pastikan nomor tujuan benar dan dikonfirmasi kepada penerima
-   sebelum transfer.
-  </p>
-  <button onclick="checkPayment()">CEK STATUS</button>
-  <button onclick="show('home')">KEMBALI</button>
- </div>
-</section>
-
-<!-- LOGIN KEY -->
-
-<section id="login" class="hidden">
- <div class="card">
-  <h2>LOGIN KEY</h2>
-  <input id="keyInput" placeholder="MASUKKAN KEY">
-  <button onclick="loginKey()">MASUK</button>
-  <button onclick="show('home')">KEMBALI</button>
- </div>
-</section>
-
-<!-- ADMIN LOGIN -->
-
-<section id="adminLogin" class="hidden">
- <div class="card">
-  <h2>ADMIN LOGIN</h2>
-  <input id="adminPassword" type="password"
-  placeholder="PASSWORD ADMIN">
-  <button onclick="adminLogin()">MASUK ADMIN</button>
-  <button onclick="show('home')">KEMBALI</button>
- </div>
-</section>
-
-<!-- ADMIN PANEL -->
-
-<section id="admin" class="hidden">
- <div class="card">
-  <h2>ADMIN CONTROL PANEL</h2>
-  <p>Pembuatan KEY gratis.</p>
-
-  <label>Paket KEY</label>
-  <select id="adminPlan">
-   <option value="3">3 Hari</option>
-   <option value="7">7 Hari</option>
-   <option value="30">30 Hari</option>
-   <option value="permanent">Permanen</option>
-  </select>
-
-  <label>Jumlah KEY</label>
-  <input id="adminQuantity" type="number"
-  min="1" max="1000" value="1">
-
-  <button onclick="createKeys()">BUAT KEY GRATIS</button>
-
-  <div id="createdKeys"></div>
-  <hr>
-
-  <h2>VERIFIKASI PEMBAYARAN</h2>
-  <input id="transactionId"
-  placeholder="ID TRANSAKSI">
-
-  <button onclick="approvePayment()">SETUJUI & TERBITKAN KEY</button>
-
-  <button onclick="logout()">LOGOUT ADMIN</button>
- </div>
-</section>
-
-<!-- DASHBOARD -->
-
-<section id="dashboard" class="hidden">
-
- <div class="card">
-  <h2>DASHBOARD VIP</h2>
-  <div id="accountInfo"></div>
-  <button onclick="logout()">LOGOUT</button>
- </div>
-
- <div class="card">
-  <h2>HOST MANAGER</h2>
-  <input id="username" placeholder="USERNAME TIKTOK">
-  <button onclick="createHost()">TAMBAH HOST</button>
-  <div id="hostList"></div>
- </div>
-
- <div id="game" class="hidden">
-
-  <div class="card">
-   <h2>ELIMINASI</h2>
-
-   <input id="participantName"
-   placeholder="NAMA PESERTA">
-
-   <button onclick="addParticipant()">TAMBAH PESERTA</button>
-   <button class="red" onclick="resetParticipants()">RESET PESERTA</button>
-
-   <label>Mode</label>
-   <select id="lockMode">
-    <option value="LOCKED">LOCKED</option>
-    <option value="NO_LOCKED">NO LOCKED</option>
-   </select>
-
-   <label>Durasi Eliminasi (detik)</label>
-   <input id="elimDuration" type="number" value="60">
-
-   <button onclick="saveSettings()">SIMPAN PENGATURAN</button>
-
-   <h3>DAFTAR PESERTA</h3>
-   <div id="participants"></div>
-  </div>
-
-  <div class="card">
-   <h2>LELANG</h2>
-   <label>Durasi lelang (detik)</label>
-   <input id="auctionDuration" type="number" value="60">
-   <button onclick="startAuction()">MULAI LELANG</button>
-   <div id="auctionStatus"></div>
-  </div>
-
-  <div class="card">
-   <h2>TIKTOK LIVE</h2>
-   <p id="connection">DISCONNECTED</p>
-   <button onclick="connectTikTok()">CONNECT</button>
-   <button class="red" onclick="disconnectTikTok()">DISCONNECT</button>
-  </div>
-
- </div>
-</section>
-
-</div>
-
 <script>
+let token = localStorage.getItem("zann_token");
+let hostId = null;
 let currentHost = null;
-let transactionId = null;
-let currentTimer = null;
+let isAdmin = false;
 
-function show(id){
- document.querySelectorAll(".container > section")
- .forEach(s=>s.classList.add("hidden"));
-
- document.getElementById(id).classList.remove("hidden");
+function notify(text) {
+  const el = document.getElementById("message");
+  el.textContent = text;
+  el.style.display = "block";
+  setTimeout(() => el.style.display = "none", 3500);
 }
 
-function message(text){
- document.getElementById("message").textContent=text;
+async function api(url, method="GET", body=null) {
+  const options = {
+    method,
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? {Authorization:"Bearer "+token} : {})
+    }
+  };
+
+  if (body) options.body = JSON.stringify(body);
+
+  const response = await fetch("/api"+url, options);
+  const data = await response.json();
+
+  if (!response.ok) throw new Error(data.error || "Terjadi kesalahan");
+
+  return data;
 }
 
-async function api(url,method="GET",body){
- const response=await fetch(url,{
-  method,
-  credentials:"same-origin",
-  headers:{"Content-Type":"application/json"},
-  body:body?JSON.stringify(body):undefined
- });
+function showSection(id) {
+  document.querySelectorAll("main > section")
+    .forEach(el => el.classList.add("hidden"));
 
- const data=await response.json();
-
- if(!response.ok){
-  throw new Error(data.error||"Terjadi kesalahan");
- }
-
- return data;
+  document.getElementById(id).classList.remove("hidden");
+  window.scrollTo(0,0);
 }
 
-const prices={
- "3":5000,
- "7":10000,
- "30":40000,
- "permanent":100000
-};
-
-function calculate(){
- const plan=document.getElementById("plan").value;
- const qty=Number(document.getElementById("quantity").value);
- const total=prices[plan]*(Number.isInteger(qty)&&qty>0?qty:0);
-
- document.getElementById("total").textContent=
- "Rp"+total.toLocaleString("id-ID");
+function money(number) {
+  return "Rp"+Number(number).toLocaleString("id-ID");
 }
 
-async function checkout(){
- try{
-  const result=await api("/api/checkout","POST",{
-   plan:document.getElementById("plan").value,
-   quantity:Number(document.getElementById("quantity").value)
-  });
+const priceData = [
+  ["3 HARI",5000,"3hari"],
+  ["7 HARI",10000,"7hari"],
+  ["30 HARI",40000,"30hari"],
+  ["PERMANEN",100000,"permanen"]
+];
 
-  transactionId=result.transaction.id;
-
-  sessionStorage.setItem("transactionId",transactionId);
-
-  document.getElementById("paymentInfo").innerHTML=`
-   <p>ID: ${result.transaction.id}</p>
-   <p>Jumlah KEY: ${result.transaction.quantity}</p>
-   <p>Total: Rp${result.transaction.amount.toLocaleString("id-ID")}</p>
-   <p>Status: MENUNGGU PEMBAYARAN</p>
-  `;
-
-  show("payment");
- }catch(e){message(e.message)}
+function renderPlans() {
+  document.getElementById("homePlans").innerHTML =
+    priceData.map(p => `
+      <div class="card">
+        <h3>KEY ${p[0]}</h3>
+        <div class="price">${money(p[1])}</div>
+        <button class="full" onclick="selectPlan('${p[2]}')">
+          BELI SEKARANG
+        </button>
+      </div>
+    `).join("");
 }
 
-async function checkPayment(){
- try{
-  const id=transactionId||sessionStorage.getItem("transactionId");
-  const tx=await api("/api/transaction/"+encodeURIComponent(id));
+function selectPlan(plan) {
+  document.getElementById("plan").value = plan;
+  showSection("store");
+}
 
-  message("STATUS TRANSAKSI: "+tx.status);
+async function buyKey() {
+  try {
+    const plan = document.getElementById("plan").value;
+    const result = await api("/purchase","POST",{plan});
 
-  if(tx.status==="PAID"){
-   alert("Pembayaran terverifikasi. Silakan hubungi admin untuk menerima KEY melalui saluran yang aman.");
+    document.getElementById("purchaseResult").innerHTML = `
+      <div class="notice">
+        <h3>TRANSAKSI DIBUAT</h3>
+        ID: <b>${result.transaction}</b><br>
+        Paket: ${result.package}<br>
+        Total: <b>${money(result.amount)}</b><br>
+        Transfer manual ke: <b>${result.payment}</b>
+        <p>${result.instructions}</p>
+        <button onclick="copyText('${result.transaction}')">SALIN ID</button>
+        <p>Status: MENUNGGU PEMBAYARAN</p>
+        <p>Hubungi admin setelah transfer untuk pemeriksaan.</p>
+      </div>
+    `;
+  } catch(e) {
+    notify(e.message);
   }
- }catch(e){message(e.message)}
 }
 
-async function loginKey(){
- try{
-  const result=await api("/api/login","POST",{
-   key:document.getElementById("keyInput").value
-  });
-
-  document.getElementById("accountInfo").textContent=
-   result.permanent?"KEY PERMANEN":"KEY "+result.plan;
-
-  show("dashboard");
- }catch(e){message(e.message)}
+async function copyText(value) {
+  try {
+    await navigator.clipboard.writeText(value);
+    notify("Berhasil disalin");
+  } catch {
+    notify("Tidak dapat menyalin otomatis");
+  }
 }
 
-async function adminLogin(){
- try{
-  await api("/api/admin/login","POST",{
-   password:document.getElementById("adminPassword").value
-  });
+async function loginKey() {
+  try {
+    const key = document.getElementById("keyInput").value;
+    const result = await api("/login","POST",{key});
 
-  show("admin");
- }catch(e){message(e.message)}
+    token = result.token;
+    localStorage.setItem("zann_token",token);
+
+    isAdmin = false;
+    document.getElementById("licenseInfo").textContent =
+      "Paket: "+result.plan+
+      " | Kedaluwarsa: "+
+      (result.expiresAt
+        ? new Date(result.expiresAt).toLocaleString("id-ID")
+        : "PERMANEN");
+
+    showSection("dashboard");
+    loadHosts();
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function createKeys(){
- try{
-  const result=await api("/api/admin/create-key","POST",{
-   plan:document.getElementById("adminPlan").value,
-   quantity:Number(document.getElementById("adminQuantity").value)
-  });
+async function adminLogin() {
+  try {
+    const password =
+      document.getElementById("adminPassword").value;
 
-  document.getElementById("createdKeys").innerHTML=
-   "<h3>KEY BERHASIL DIBUAT</h3>"+
-   result.keys.map(k=>`<div class="item">${k}</div>`).join("");
+    const result = await api(
+      "/admin/login","POST",{password}
+    );
 
- }catch(e){message(e.message)}
+    token = result.token;
+    localStorage.setItem("zann_token",token);
+    isAdmin = true;
+
+    showSection("admin");
+    loadTransactions();
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function approvePayment(){
- try{
-  const id=document.getElementById("transactionId").value.trim();
+async function generateAdminKey() {
+  try {
+    const plan = document.getElementById("adminPlan").value;
+    const result = await api(
+      "/admin/keys","POST",{plan}
+    );
 
-  if(!confirm("Pastikan pembayaran benar-benar telah diterima. Setujui transaksi?"))return;
-
-  const result=await api("/api/admin/approve/"+encodeURIComponent(id),"POST");
-
-  document.getElementById("createdKeys").innerHTML=
-   result.keys.map(k=>`<div class="item">${k}</div>`).join("");
-
-  message(result.message);
- }catch(e){message(e.message)}
+    document.getElementById("generatedKey").innerHTML = `
+      <div class="notice">
+        <h3>KEY BERHASIL DIBUAT</h3>
+        <b>${result.key}</b><br>
+        Paket: ${result.plan}<br>
+        <button onclick="copyText('${result.key}')">SALIN KEY</button>
+      </div>
+    `;
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function createHost(){
- try{
-  const result=await api("/api/hosts","POST",{
-   username:document.getElementById("username").value
-  });
+async function loadTransactions() {
+  try {
+    const rows = await api("/admin/transactions");
 
-  currentHost=result.host.id;
-
-  await loadHosts();
-  await loadParticipants();
-
-  document.getElementById("game").classList.remove("hidden");
- }catch(e){message(e.message)}
+    document.getElementById("transactions").innerHTML =
+      rows.map(t => `
+        <div class="list-item">
+          <b>${t.id}</b>
+          <p>${t.plan} - ${money(t.amount)}</p>
+          <p>Status: ${t.status}</p>
+          ${t.status === "PENDING" ? `
+            <button onclick="approve('${t.id}')">
+              VERIFIKASI & TERBITKAN KEY
+            </button>
+          ` : ""}
+        </div>
+      `).join("") || "Belum ada transaksi.";
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function loadHosts(){
- try{
-  const hosts=await api("/api/hosts");
+async function approve(id) {
+  if (!confirm("Pastikan uang sudah diterima. Setujui transaksi?")) return;
 
-  document.getElementById("hostList").innerHTML=
-   hosts.map(h=>`
-    <div class="item">
-     @${h.tiktok_username}
-     <button onclick="selectHost('${h.id}')">PILIH HOST</button>
-    </div>
-   `).join("");
- }catch(e){message(e.message)}
+  try {
+    const result = await api(
+      "/admin/transactions/"+id+"/approve",
+      "POST",{}
+    );
+
+    alert(
+      "KEY DITERBITKAN:\n"+
+      result.key+
+      "\nSalin dan berikan kepada pembeli."
+    );
+
+    loadTransactions();
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function selectHost(id){
- currentHost=id;
- document.getElementById("game").classList.remove("hidden");
- await loadParticipants();
+async function relay(enabled) {
+  try {
+    await api("/admin/relay","POST",{enabled});
+    document.getElementById("relayStatus").textContent =
+      enabled ? "RELAY ADMIN DIAKTIFKAN" : "RELAY MATI";
+    notify("Perintah relay berhasil");
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function addParticipant(){
- try{
-  await api(`/api/hosts/${currentHost}/participants`,"POST",{
-   name:document.getElementById("participantName").value
-  });
-
-  document.getElementById("participantName").value="";
-  await loadParticipants();
- }catch(e){message(e.message)}
+async function createHost() {
+  try {
+    await api("/hosts","POST",{});
+    loadHosts();
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function loadParticipants(){
- if(!currentHost)return;
+async function loadHosts() {
+  try {
+    const hosts = await api("/hosts");
 
- try{
-  const data=await api(`/api/hosts/${currentHost}/participants`);
-
-  document.getElementById("participants").innerHTML=
-   data.map(p=>`
-    <div class="item">
-     ${p.name}
-     <button class="red" onclick="deleteParticipant(${p.id})">HAPUS</button>
-    </div>
-   `).join("");
- }catch(e){message(e.message)}
+    document.getElementById("hostList").innerHTML =
+      hosts.map(h => `
+        <div class="list-item">
+          HOST ${h.id.slice(0,8)}
+          <p>${h.username || "Belum diatur"}</p>
+          <button onclick="openHost('${h.id}')">BUKA HOST</button>
+        </div>
+      `).join("") || "Belum ada host.";
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function deleteParticipant(id){
- try{
-  await api(`/api/hosts/${currentHost}/participants/${id}`,"DELETE");
-  await loadParticipants();
- }catch(e){message(e.message)}
+async function openHost(id) {
+  hostId = id;
+  showSection("host");
+  document.getElementById("hostTitle").textContent =
+    "HOST "+id.slice(0,8);
+  loadParticipants();
 }
 
-async function resetParticipants(){
- if(!confirm("Reset seluruh peserta host ini?"))return;
+async function connectHost() {
+  try {
+    const username =
+      document.getElementById("tiktokUsername").value
+        .replace(/^@/,"");
 
- try{
-  await api(`/api/hosts/${currentHost}/participants`,"DELETE");
-  await loadParticipants();
- }catch(e){message(e.message)}
+    const result = await api(
+      "/hosts/"+hostId+"/connect",
+      "POST",{username}
+    );
+
+    document.getElementById("hostStatus").textContent =
+      result.status;
+
+    notify(result.message);
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function saveSettings(){
- try{
-  await api(`/api/hosts/${currentHost}/settings`,"PUT",{
-   lock_mode:document.getElementById("lockMode").value,
-   duration:Number(document.getElementById("elimDuration").value)
-  });
-
-  message("PENGATURAN BERHASIL DISIMPAN");
- }catch(e){message(e.message)}
+async function disconnectHost() {
+  try {
+    await api("/hosts/"+hostId+"/disconnect","POST",{});
+    document.getElementById("hostStatus").textContent =
+      "DISCONNECTED";
+    notify("Host diputuskan");
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function startAuction(){
- try{
-  const duration=Number(document.getElementById("auctionDuration").value);
+async function addParticipant() {
+  try {
+    const name =
+      document.getElementById("participantName").value;
 
-  const result=await api(`/api/hosts/${currentHost}/auction`,"POST",{
-   duration
-  });
+    await api(
+      "/hosts/"+hostId+"/participants",
+      "POST",{name}
+    );
 
-  message("LELANG BERHASIL DIMULAI");
-  runAuction(result.ends_at);
- }catch(e){message(e.message)}
+    document.getElementById("participantName").value = "";
+    loadParticipants();
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-function runAuction(endsAt){
- if(currentTimer)clearInterval(currentTimer);
+async function loadParticipants() {
+  try {
+    const rows = await api(
+      "/hosts/"+hostId+"/participants"
+    );
 
- currentTimer=setInterval(()=>{
-  const remaining=Math.max(0,Math.ceil((endsAt-Date.now())/1000));
-
-  document.getElementById("auctionStatus").textContent=
-   remaining>0?"LELANG BERLANGSUNG: "+remaining+" DETIK":"LELANG SELESAI";
-
-  if(remaining<=0)clearInterval(currentTimer);
- },250);
+    document.getElementById("participants").innerHTML =
+      rows.map(p => `
+        <div class="list-item">
+          ${p.name}
+          <button class="danger"
+            onclick="deleteParticipant(${p.id})">
+            HAPUS
+          </button>
+        </div>
+      `).join("") || "Belum ada peserta.";
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function connectTikTok(){
- try{
-  const result=await api(`/api/hosts/${currentHost}/connect`,"POST");
-  document.getElementById("connection").textContent=
-   result.connected?"CONNECTED":"DISCONNECTED";
- }catch(e){
-  document.getElementById("connection").textContent="DISCONNECTED";
-  message(e.message);
- }
+async function deleteParticipant(id) {
+  try {
+    await api(
+      "/hosts/"+hostId+"/participants/"+id,
+      "DELETE"
+    );
+    loadParticipants();
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function disconnectTikTok(){
- try{
-  await api(`/api/hosts/${currentHost}/disconnect`,"POST");
-  document.getElementById("connection").textContent="DISCONNECTED";
- }catch(e){message(e.message)}
+async function resetParticipants() {
+  if (!confirm("Reset semua peserta host ini?")) return;
+
+  try {
+    await api(
+      "/hosts/"+hostId+"/participants",
+      "DELETE"
+    );
+    loadParticipants();
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-async function logout(){
- try{await api("/api/logout","POST")}catch(e){}
- location.reload();
+async function startElimTimer() {
+  try {
+    const seconds = Number(
+      document.getElementById("elimTime").value
+    );
+    const mode = document.getElementById("lockMode").value;
+
+    const result = await api(
+      "/hosts/"+hostId+"/timer",
+      "POST",{seconds,mode}
+    );
+
+    notify("Timer berhasil disimpan: "+mode);
+  } catch(e) {
+    notify(e.message);
+  }
 }
 
-calculate();
-show("home");
+async function startAuction() {
+  try {
+    const duration = Number(
+      document.getElementById("auctionTime").value
+    );
+
+    await api(
+      "/hosts/"+hostId+"/auction",
+      "POST",{action:"start",duration}
+    );
+
+    notify("Lelang dimulai");
+  } catch(e) {
+    notify(e.message);
+  }
+}
+
+async function resetAuction() {
+  try {
+    await api(
+      "/hosts/"+hostId+"/auction",
+      "POST",{action:"reset"}
+    );
+
+    notify("Lelang direset");
+  } catch(e) {
+    notify(e.message);
+  }
+}
+
+function logout() {
+  localStorage.removeItem("zann_token");
+  token = null;
+  hostId = null;
+  isAdmin = false;
+  showSection("home");
+}
+
+renderPlans();
+showSection("home");
 </script>
-
 </body>
 </html>
